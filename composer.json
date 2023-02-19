@@ -1,0 +1,33 @@
+{
+    "name": "rickintveld/php-api-client",
+    "homepage": "https://github.com/rickintveld/php-api-client/README.md",
+    "description": "Basic PHP API client",
+    "keywords": [
+        "api",
+        "client",
+        "post",
+        "get",
+        "patch",
+        "delete"
+    ],
+    "license": "MIT",
+    "type": "application",
+    "version": "1.0.0",
+    "authors": [
+        {
+            "name": "Rick in t Veld",
+            "email": "rick_91@live.nl"
+        }
+    ],
+    "minimum-stability": "1.0.0",
+    "prefer-stable": true,
+    "require": {
+        "php": "^8.0",
+        "guzzlehttp/guzzle": "^7.5.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Rintveld\\": "src"
+        }
+    }
+}
