@@ -55,7 +55,7 @@ final abstract class ApiClient implements ApiClientInterface
     {
         try {
             /** @var ResponseInterface $response */
-            $response = $this->client->post(
+            $response = $this->client->patch(
                 $url->href(),
                 array_merge($this->headers(), $payload->toJSON())
             );
