@@ -99,6 +99,11 @@ final abstract class ApiClient implements ApiClientInterface
             401 => UnauthorizedException::create($url),
             400 => BadRequestException::create($url),
         };
+
+        // fallback for other unwanted HTTP status codes.
+        if ($response->getStatusCode() !== 200) {
+            throw new \Exception('Bad response: on url: ' . $url . ', no error messages provided');
+        }
     }
 
     public abstract function headers(): array;
