@@ -4,21 +4,20 @@ namespace Rintveld\Models;
 
 final class ActionUri
 {
-    public function __construct(private readonly string $url)
+    public function __construct(private string $uri)
     {
     }
 
     public function addParameters(array $parameters): self
     {
-        if (!empty($parameters)) {
-            $this->url . '?' . http_build_query($parameters);
-        }
+        $this->uri =
+            implode('?', [$this->uri, http_build_query($parameters)]);
 
         return $this;
     }
 
-    public function href(): string
+    public function uri(): string
     {
-        return $this->url;
+        return $this->uri;
     }
 }

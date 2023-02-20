@@ -1,15 +1,9 @@
-<phpunit bootstrap="vendor/autoload.php">
-    <testsuites>
-        <testsuite name="refactor">
-            <directory>tests</directory>
-        </testsuite>
-    </testsuites>
-    <filter>
-        <whitelist processUncoveredFilesFromWhitelist="true">
-            <directory suffix=".php">src</directory>
-        </whitelist>
-    </filter>
-    <logging>
-        <log type="coverage-clover" target="clover.xml" />
-    </logging>
+<?xml version="1.0"?>
+<phpunit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" bootstrap="vendor/autoload.php" xsi:noNamespaceSchemaLocation="https://schema.phpunit.de/10.0/phpunit.xsd" cacheDirectory=".phpunit.cache">
+  <testsuites>
+    <testsuite name="php-api-client">
+      <directory>tests</directory>
+    </testsuite>
+  </testsuites>
+  <logging/>
 </phpunit>

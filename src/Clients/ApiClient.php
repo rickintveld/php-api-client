@@ -24,9 +24,9 @@ final abstract class ApiClient implements ApiClientInterface
     {
         try {
             /** @var ResponseInterface $response */
-            $response = $this->client->get($url->href(), $this->headers());
+            $response = $this->client->get($url->uri(), $this->headers());
 
-            $this->validateHttpStatusCode($response, $url->href());
+            $this->validateHttpStatusCode($response, $url->uri());
         } catch (ClientException $clientException) {
             throw $clientException;
         }
@@ -39,11 +39,11 @@ final abstract class ApiClient implements ApiClientInterface
         try {
             /** @var ResponseInterface $response */
             $response = $this->client->post(
-                $url->href(),
+                $url->uri(),
                 array_merge($this->headers(), $payload->toJSON())
             );
 
-            $this->validateHttpStatusCode($response, $url->href());
+            $this->validateHttpStatusCode($response, $url->uri());
         } catch (ClientException $clientException) {
             throw $clientException;
         }
@@ -56,11 +56,11 @@ final abstract class ApiClient implements ApiClientInterface
         try {
             /** @var ResponseInterface $response */
             $response = $this->client->patch(
-                $url->href(),
+                $url->uri(),
                 array_merge($this->headers(), $payload->toJSON())
             );
 
-            $this->validateHttpStatusCode($response, $url->href());
+            $this->validateHttpStatusCode($response, $url->uri());
         } catch (ClientException $clientException) {
             throw $clientException;
         }
@@ -72,9 +72,9 @@ final abstract class ApiClient implements ApiClientInterface
     {
         try {
             /** @var ResponseInterface $response */
-            $response = $this->client->delete($url->href(), $this->headers());
+            $response = $this->client->delete($url->uri(), $this->headers());
 
-            $this->validateHttpStatusCode($response, $url->href());
+            $this->validateHttpStatusCode($response, $url->uri());
         } catch (ClientException $clientException) {
             throw $clientException;
         }
