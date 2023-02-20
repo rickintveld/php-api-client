@@ -19,7 +19,7 @@
             "email": "rick_91@live.nl"
         }
     ],
-    "minimum-stability": "1.0.0",
+    "minimum-stability": "stable",
     "prefer-stable": true,
     "require": {
         "php": "^8.0",
@@ -29,5 +29,13 @@
         "psr-4": {
             "Rintveld\\": "src"
         }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Rintveld\\Tests\\": "tests"
+        }
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^10.0"
     }
 }
