@@ -8,6 +8,10 @@ use Psr\Http\Message\ResponseInterface;
 use Rintveld\Contracts\Clients\ApiClientInterface;
 use Rintveld\Contracts\Payload\PayloadInterface;
 use Rintveld\Models\ActionUri;
+use Rintveld\Exceptions\BadRequestException;
+use Rintveld\Exceptions\ForbiddenException;
+use Rintveld\Exceptions\UnauthorizedException;
+use Rintveld\Exceptions\NotFoundException;
 
 final abstract class ApiClient implements ApiClientInterface
 {
@@ -89,9 +93,12 @@ final abstract class ApiClient implements ApiClientInterface
      */
     private function validateHttpStatusCode(ResponseInterface $response, string $url): void
     {
-        if ($response->getStatusCode() !== 200) {
-            throw new \Exception('Bad response: on url: ' . $url . ', no error messages provided', 1574170457604);
-        }
+        match ($response->getStatusCode()) {
+            404 => NotFoundException::create($url),
+            403 => ForbiddenException::create($url),
+            401 => UnauthorizedException::create($url),
+            400 => BadRequestException::create($url),
+        };
     }
 
     public abstract function headers(): array;
