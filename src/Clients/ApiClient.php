@@ -13,7 +13,7 @@ use Rintveld\Exceptions\ForbiddenException;
 use Rintveld\Exceptions\UnauthorizedException;
 use Rintveld\Exceptions\NotFoundException;
 
-final abstract class ApiClient implements ApiClientInterface
+abstract class ApiClient implements ApiClientInterface
 {
     public Client $client;
 
