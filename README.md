@@ -7,7 +7,7 @@ use Rintveld\Clients\ApiClient;
 use Rintveld\Models\ActionUrl;
 
 class ErpClient extends ApiClient {
-    public function __constructor(string $baseUri, private readonly ...$customHeaders = null) {
+    public function __constructor(string $baseUri, private readonly $customHeaders = null) {
         parent::__constructor($baseUri);
     }
 
